@@ -1,0 +1,15 @@
+---
+- name: test new module
+  hosts: localhost
+  collections:
+    - mycollection.newcollection
+
+  tasks:
+    - name: Run new module
+      my_test:
+        name: 'Hello'
+        new: true
+      register: testout
+    - name: Dump test output
+      debug:
+        msg: '{{ testout }}'
